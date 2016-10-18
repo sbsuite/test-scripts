@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>SBSuite.build-scripts</id>
-    <version>1.0.4</version>
+    <version>$version$</version>
     <authors>robertmcintosh, msevestre</authors>
     <owners>robertmcintosh, msevestre</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
