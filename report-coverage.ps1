@@ -1,15 +1,19 @@
 $coveralls = (Resolve-Path "packages/coveralls.net.*/tools/csmacnz.coveralls.exe").ToString()
 $testProj = (Resolve-Path "dev/*.Tests/*.Tests.csproj").ToString()
 $openCover = (Resolve-Path "packages/OpenCover.*/tools/OpenCover.Console.exe").ToString()
-$testFilter = "cat!=IntegrationTest"
-$targetArgs = "$testProj --where=$testFilter /config:Release"
-$testFilter = "+[*]*-[*.Tests]*"
+$testFilter = $args[ 0 ]
+$targetArgs = "$testProj /config:Release"
+
+If ($testFilter)
+{
+	$targetArgs = "$targetArgs  --where=$testFilter"
+}
 
 $openCover
 $testProj
 $coveralls
 $targetArgs
-$testFilter
+
 
 & $openCover -register:user -target:nunit3-console.exe -targetargs:$targetArgs -filter:$testFilter -output:OpenCover.xml
 $env:APPVEYOR_BUILD_NUMBER
