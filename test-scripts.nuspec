@@ -1,22 +1,21 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>SBSuite.build-scripts</id>
+    <id>SBSuite.test-scripts</id>
     <version>$version$</version>
     <authors>robertmcintosh, msevestre</authors>
     <owners>robertmcintosh, msevestre</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>scripts shared among SBSuite builds</description>
+    <description>scripts shared among SBSuite test projects</description>
     <releaseNotes>No changes</releaseNotes>
     <copyright>Copyright 2016</copyright>
     <tags></tags>
-<!--     <dependencies>
+    <dependencies>
       <dependency id="OpenCover" />
       <dependency id="Coveralls.net" />
     </dependencies>
- -->  </metadata>
+  </metadata>
    <files>
     <file src="report-coverage.ps1" target="tools" />
-    <file src="pre-setup.ps1" target="setup" />
   </files>
 </package>
