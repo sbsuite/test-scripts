@@ -1,6 +1,6 @@
 version: 1.0.{build}
 build_script:
-- cmd: nuget pack build-scripts.nuspec -version {version}
+- cmd: nuget pack build-scripts.nuspec -version "{version}"
 artifacts:
 - path: '*.nupkg'
   name: nuget-package
