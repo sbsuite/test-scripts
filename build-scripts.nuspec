@@ -12,6 +12,7 @@
     <tags></tags>
   </metadata>
    <files>
-    <file src="reportCoverage.ps1" target="tools" />
+    <file src="report-coverage.ps1" target="tools" />
+    <file src="pre-setup.ps1" target="setup" />
   </files>
 </package>
