@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>SBSuite.build-scripts</id>
-    <version>1.0.3</version>
+    <version>$version$</version>
     <authors>robertmcintosh, msevestre</authors>
     <owners>robertmcintosh, msevestre</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -10,6 +10,10 @@
     <releaseNotes>No changes</releaseNotes>
     <copyright>Copyright 2016</copyright>
     <tags></tags>
+    <dependencies>
+      <dependency id="OpenCover" />
+      <dependency id="Coveralls.net" />
+    </dependencies>
   </metadata>
    <files>
     <file src="report-coverage.ps1" target="tools" />
