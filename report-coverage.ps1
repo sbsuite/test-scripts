@@ -4,7 +4,7 @@ Write-Host "Report filter $($reportFilter)" -ForegroundColor Green
 Write-Host "Category filter $($categoryFilter)" -ForegroundColor Green
 
 $coveralls = (Resolve-Path "packages/coveralls.net.*/tools/csmacnz.coveralls.exe").ToString()
-$testProj = (Resolve-Path "dev/*.Tests/*.Tests.csproj").ToString()
+$testProj = (Resolve-Path "*/*.Tests/*.Tests.csproj").ToString()
 $openCover = (Resolve-Path "packages/OpenCover.*/tools/OpenCover.Console.exe").ToString()
 
 $targetArgs = "$testProj /config:Release"
