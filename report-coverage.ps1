@@ -1,7 +1,9 @@
+param([string]$testFilter = "")
+
 $coveralls = (Resolve-Path "packages/coveralls.net.*/tools/csmacnz.coveralls.exe").ToString()
 $testProj = (Resolve-Path "dev/*.Tests/*.Tests.csproj").ToString()
 $openCover = (Resolve-Path "packages/OpenCover.*/tools/OpenCover.Console.exe").ToString()
-$testFilter = $args[ 0 ]
+
 $targetArgs = "$testProj /config:Release"
 
 If ($testFilter)
