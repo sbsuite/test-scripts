@@ -1,4 +1,4 @@
-param([string]$categoryFilter = "", [string]$reportFilter="+[*]*-[*.Tests]*", [string]$buildConfiguration="Release")
+param([string]$categoryFilter = "", [string]$reportFilter="+[*]*-[*.Tests]*", [string]$buildConfiguration=$env:CONFIGURATION)
 
 Write-Host "Report filter $($reportFilter)" -ForegroundColor Green
 Write-Host "Category filter $($categoryFilter)" -ForegroundColor Green
