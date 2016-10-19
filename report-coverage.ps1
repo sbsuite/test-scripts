@@ -11,7 +11,7 @@ $targetArgs = "$testProj /config:Release"
 
 If ($categoryFilter)
 {
-	$targetArgs = "$targetArgs  $categoryFilter"
+	$targetArgs = "$targetArgs  --where=$categoryFilter"
 }
 
 Write-Host "OpenCover path $($openCover)" -ForegroundColor Green
@@ -19,7 +19,7 @@ Write-Host "Test project path $($testProj)" -ForegroundColor Green
 Write-Host "Coveralls path $($coveralls)" -ForegroundColor Green
 Write-Host "nUnit args $($targetArgs)" -ForegroundColor Green
 
-Write-Host "$($openCover) -register:user -target:nunit3-console.exe -targetargs:$($targetArgs) -filter:$($reportFilter) -output:OpenCover.xml"
+Write-Host "$($openCover) -register:user -target:nunit3-console.exe -targetargs:$($targetArgs) -filter:$($reportFilter) -output:OpenCover.xml" -ForegroundColor Green
 
 & $openCover -register:user -target:nunit3-console.exe -targetargs:$targetArgs -filter:$reportFilter -output:OpenCover.xml
 $env:APPVEYOR_BUILD_NUMBER
