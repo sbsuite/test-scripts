@@ -1,7 +1,7 @@
 param([string]$categoryFilter = "", [string]$reportFilter="+[*]*-[*.Tests]*")
 
-$reportFilter
-$categoryFilter
+Write-Host "Report filter $($reportFilter)" -ForegroundColor Green
+Write-Host "Category filter $($categoryFilter)" -ForegroundColor Green
 
 $coveralls = (Resolve-Path "packages/coveralls.net.*/tools/csmacnz.coveralls.exe").ToString()
 $testProj = (Resolve-Path "dev/*.Tests/*.Tests.csproj").ToString()
@@ -14,11 +14,12 @@ If ($categoryFilter)
 	$targetArgs = "$targetArgs  $categoryFilter"
 }
 
-$openCover
-$testProj
-$coveralls
-$targetArgs
+Write-Host "OpenCover path $($openCover)" -ForegroundColor Green
+Write-Host "Test project path $($testProj)" -ForegroundColor Green
+Write-Host "Coveralls path $($coveralls)" -ForegroundColor Green
+Write-Host "nUnit args $($targetArgs)" -ForegroundColor Green
 
+Write-Host "$($openCover) -register:user -target:nunit3-console.exe -targetargs:$($targetArgs) -filter:$($reportFilter) -output:OpenCover.xml"
 
 & $openCover -register:user -target:nunit3-console.exe -targetargs:$targetArgs -filter:$reportFilter -output:OpenCover.xml
 $env:APPVEYOR_BUILD_NUMBER
