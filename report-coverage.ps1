@@ -1,4 +1,4 @@
-param([string]$categoryFilter = "", [string]$reportFilter="+[*]*-[*.Tests]*")
+param([string]$categoryFilter = "", [string]$reportFilter="+[*]*-[*.Tests]*", [string]$buildConfiguration="Release")
 
 Write-Host "Report filter $($reportFilter)" -ForegroundColor Green
 Write-Host "Category filter $($categoryFilter)" -ForegroundColor Green
@@ -7,7 +7,7 @@ $coveralls = (Resolve-Path "packages/coveralls.net.*/tools/csmacnz.coveralls.exe
 $testProj = (Resolve-Path "*/*.Tests/*.Tests.csproj").ToString()
 $openCover = (Resolve-Path "packages/OpenCover.*/tools/OpenCover.Console.exe").ToString()
 
-$targetArgs = "$testProj /config:Release"
+$targetArgs = "$testProj /config:$buildConfiguration"
 
 If ($categoryFilter)
 {
